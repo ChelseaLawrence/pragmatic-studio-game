@@ -18,7 +18,7 @@ class Player
 
   def w00t
     puts "#{@name} got w00ted!"
-    @health += 10
+    @health += 15
   end
 
   def name=(new_name)
