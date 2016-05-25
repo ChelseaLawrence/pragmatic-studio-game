@@ -38,4 +38,30 @@ describe Player do
     expect(@player.health).to eq(@initial_health - 10)
   end
 
+  context 'with a health greater than 100' do
+
+    before do
+      $stdout = StringIO.new
+      @initial_health = 140
+      @player = Player.new("hillary", @initial_health)
+    end
+
+    it 'is strong' do
+      expect(@player.strong?).to eq(true)
+    end
+
+  end
+
+  context 'with a health equal to 100' do
+
+    before do
+      $stdout = StringIO.new
+      @initial_health = 100
+      @player = Player.new("hillary", @initial_health)
+    end
+
+    it 'is wimpy' do
+      expect(@player.strong?).to eq(false)
+    end
+  end
 end

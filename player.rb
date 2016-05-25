@@ -29,16 +29,20 @@ class Player
     @health + @name.length
   end
 
-end
+  def strong?
+    @health > 100
+  end
 
 # Only run if the name of current source file (__FILE__) is the same as the program being run ($0 or $PROGRAM_NAME).
 
-if __FILE__ == $0
-  player = Player.new("moe")
-  puts player.name
-  puts player.health
-  player.w00t
-  puts player.health
-  player.blam
-  puts player.health
+  if __FILE__ == $0
+    player = Player.new("moe")
+    puts player.name
+    puts player.health
+    player.w00t
+    puts player.health
+    player.blam
+    puts player.health
+  end
+
 end
