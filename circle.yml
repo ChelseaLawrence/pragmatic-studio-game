@@ -9,5 +9,4 @@ dependencies:
     - bundle install
 
 test:
-  post:
-  - rspec player_spec.rb --color --format
+  - rspec .
