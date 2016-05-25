@@ -7,7 +7,3 @@ dependencies:
   pre:
     - gem install bundler
     - bundle install
-
-test:
-  post:
-  - rspec .
