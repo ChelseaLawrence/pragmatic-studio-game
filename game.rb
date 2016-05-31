@@ -14,18 +14,43 @@ class Game
     @players.push player
   end
 
-  def play_game
+  def play_game(rounds)
     puts "There are #{@players.length} players in the game.:"
 
     @players.each do |player|
-      puts player
+      puts "#{player.name} (#{player.health})"
     end
 
-    @players.each do |player|
-      GameTurn.take_turn(player)
-      puts player
+    1.upto(rounds).each do |round|
+      puts "\nRound: #{round}"
+
+      @players.each do |player|
+        GameTurn.take_turn(player)
+        puts player
+      end
+
+    end
+  end
+
+  def print_name_and_health(player)
+    puts "#{player.name} #{player.score}"
+  end
+
+  def print_stats
+    puts "\n Knucklehead Statistics:"
+
+    strong_players, wimpy_players = @players.partition { |player| player.strong? }
+
+    puts "Strong players:"
+    strong_players.each do |player|
+      puts "#{player.name} (#{player.health})"
+    end
+
+    puts "Wimpy players:"
+    wimpy_players.each do |player|
+      puts "#{player.name} (#{player.health})"
     end
 
   end
-
 end
+

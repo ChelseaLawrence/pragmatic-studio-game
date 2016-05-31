@@ -33,6 +33,10 @@ class Player
     @health > 100
   end
 
+  def <=>(other_score)
+    other_score <=> score
+  end
+
 # Only run if the name of current source file (__FILE__) is the same as the program being run ($0 or $PROGRAM_NAME).
 
   if __FILE__ == $0
