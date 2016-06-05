@@ -17,7 +17,7 @@ end
 describe TreasureTrove do
 
   it 'has six treasures' do
-  expect TreasureTrove::TREASURES.size.to_i == 6
+    expect TreasureTrove::TREASURES.size.to_i == 6
   end
 
   it 'has a pie worth 5 points' do
@@ -42,6 +42,12 @@ describe TreasureTrove do
 
   it 'has a crowbar worth 400 points' do
     expect TreasureTrove::TREASURES[5] == Treasure.new(:crowbar, 400)
+  end
+
+  it 'returns a random treasure' do
+    treasure =TreasureTrove.random
+
+    TreasureTrove::TREASURES.should include(treasure)
   end
 
 end

@@ -10,4 +10,9 @@ module TreasureTrove
       Treasure.new(:broomstick, 200),
       Treasure.new(:crowbar, 400)
   ]
+
+  def self.random
+    TREASURES.sample
+  end
+
 end
