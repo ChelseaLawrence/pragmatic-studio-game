@@ -1,6 +1,7 @@
 require_relative 'player'
 require_relative 'die'
 require_relative 'game_turn'
+require_relative 'treasure_trove'
 
 class Game
   attr_reader :game_title
@@ -15,18 +16,26 @@ class Game
   end
 
   def play_game(rounds)
-    puts "There are #{@players.length} players in the game.:"
+    puts "There are #{@players.length} players in the game:"
 
     @players.each do |player|
       puts "#{player.name} (#{player.health})"
     end
+
+    treasures = TreasureTrove::TREASURES
+
+    puts "\nThere are #{treasures.length} the treasures to be found:"
+
+    treasures.each do |treasure|
+      puts "#{treasure.name.capitalize} worth #{treasure.points} points"
+    end
+
 
     1.upto(rounds).each do |round|
       puts "\nRound: #{round}"
 
       @players.each do |player|
         GameTurn.take_turn(player)
-        puts player
       end
 
     end
@@ -37,7 +46,7 @@ class Game
   end
 
   def print_stats
-    puts "\n Knucklehead Statistics:"
+    puts "\nKnucklehead Statistics:"
 
     strong_players, wimpy_players = @players.partition { |player| player.strong? }
 
@@ -46,7 +55,7 @@ class Game
       puts "#{player.name} (#{player.health})"
     end
 
-    puts "Wimpy players:"
+    puts "\nWimpy players:"
     wimpy_players.each do |player|
       puts "#{player.name} (#{player.health})"
     end
