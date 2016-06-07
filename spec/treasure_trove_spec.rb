@@ -2,6 +2,7 @@ describe Treasure do
 
   before do
     @treasure = Treasure.new(:hammer, 50)
+    @player = Player.new('moe')
   end
 
   it 'has a name attribute' do
@@ -48,6 +49,20 @@ describe TreasureTrove do
     treasure =TreasureTrove.random
 
     TreasureTrove::TREASURES.should include(treasure)
+  end
+
+  it 'computes points as the sum of all treasure points' do
+    @player = Player.new('moe')
+    expect (@player.points) == 0
+
+    @player.find_treasure(Treasure.new(:hammer, 50))
+    expect (@player.points) == 50
+
+    @player.find_treasure(Treasure.new(:crowbar, 400))
+    expect (@player.points) == 450
+
+    @player.find_treasure(Treasure.new(:hammer, 50))
+    expect (@player.points) == 500
   end
 
 end
