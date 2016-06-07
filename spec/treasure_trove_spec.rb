@@ -65,4 +65,20 @@ describe TreasureTrove do
     expect (@player.points) == 500
   end
 
+  it 'computes total points as the sum of all player points' do
+    game = Game.new('Knuckleheads')
+
+    player1 = Player.new('moe')
+    player2 = Player.new('harry')
+
+    game.add_player(player1)
+    game.add_player(player2)
+
+    player1.find_treasure(Treasure.new(:hammer, 50))
+    player1.find_treasure(Treasure.new(:hammer, 50))
+    player2.find_treasure(Treasure.new(:hammer, 400))
+
+    expect(game.total_points) == 500
+  end
+
 end

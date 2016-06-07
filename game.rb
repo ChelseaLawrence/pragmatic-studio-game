@@ -66,6 +66,12 @@ class Game
       puts "#{player.name}\: #{player.points} grand total points"
     end
 
+    puts "#{total_points} total points from treasures found."
   end
+
+  def total_points
+    @players.reduce(0) { |sum, player| sum + player.points }
+  end
+
 end
 
