@@ -21,11 +21,17 @@ describe Player do
   end
 
   it 'has a string representation' do
-    expect(@player.to_s).to eq('I\'m Hillary with a health of 150 and a score of 157.')
+    @player.find_treasure(Treasure.new(:hammer, 50))
+    @player.find_treasure(Treasure.new(:hammer, 50))
+
+    expect(@player.to_s).to eq('I\'m Hillary with a health = 150, points = 100, and score = 250.')
   end
 
-  it 'computes a score as the sum of its health and length of name' do
-    expect(@player.score).to eq(150 + 7)
+  it 'computes a score as the sum of its health and points' do
+    @player.find_treasure(Treasure.new(:hammer, 50))
+    @player.find_treasure(Treasure.new(:hammer, 50))
+
+    expect(@player.score).to eq(250)
   end
 
   it 'increases health by 15 when w00ted' do
