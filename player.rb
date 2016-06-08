@@ -49,6 +49,14 @@ class Player
     @found_treasures.values.reduce(0, :+)
   end
 
+  def each_found_treasure
+    #iterate over found_treasures hash
+
+    @found_treasures.each do |name, points|
+      yield Treasure.new(name, points)
+    end
+  end
+
 # Only run if the name of current source file (__FILE__) is the same as the program being run ($0 or $PROGRAM_NAME).
 
   if __FILE__ == $0
