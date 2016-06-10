@@ -67,7 +67,7 @@ class Game
       player.each_found_treasure do |treasure|
         puts "#{treasure.points} #{treasure.name}"
       end
-      puts "#{player.name}\n: #{player.points} grand total points"
+      puts "#{player.points} grand total points"
     end
 
     puts "\n#{total_points} total points from treasures found."
@@ -75,6 +75,31 @@ class Game
 
   def total_points
     @players.reduce(0) { |sum, player| sum + player.points }
+  end
+
+  def load_players(from_file)
+    File.readlines(from_file).each do |line|
+      puts line
+
+      name, health = line.split(',')
+
+      player = Player.new(name, health.to_i)
+
+      add_player(player)
+    end
+  end
+
+  def save_high_scores(to_file='high_scores.txt')
+    File.open(to_file, 'w') do |file|
+      file.puts "#{@game_title} High Scores:"
+
+      @players.sort.each do |player|
+        formatted_name = player.name.ljust(20, '.')
+        file.puts "#{formatted_name}#{player.points}"
+      end
+
+    end
+
   end
 
 end
