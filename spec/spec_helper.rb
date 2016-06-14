@@ -8,10 +8,10 @@ end
 
 SimpleCov.start
 
-require_relative '../game.rb'
-require_relative '../player.rb'
-require_relative '../die.rb'
-require_relative '../treasure_trove.rb'
-require_relative '../clumsy_player.rb'
-require_relative '../berserk_player.rb'
-require_relative '../auditable.rb'
+require 'studio_game/game.rb'
+require 'studio_game/player.rb'
+require 'studio_game/die.rb'
+require 'studio_game/treasure_trove.rb'
+require 'studio_game/clumsy_player.rb'
+require 'studio_game/berserk_player.rb'
+require 'studio_game/auditable.rb'
