@@ -1,3 +1,5 @@
 # pragmatic-studio-game
 
-A repo in which to store code I've written for The Pragmatic Studio Ruby Programming course.
+NPCs collect treasure, are w00ted or blammed, and compete for high scores.  Players may be clumsy or berserk (depending on how many times they are w00ted).  Load your own players by modifying the bin/favorite_players.csv file.  High scores are written to a high_scores.txt file.
+
+Created as part of The Pragmatic Studio Ruby Programming course.
