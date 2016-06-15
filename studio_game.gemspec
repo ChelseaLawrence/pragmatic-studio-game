@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
   s.name         = 'knuckleheads_game'
-  s.version      = '1.0.1'
+  s.version      = '1.0.2'
   s.author       = 'Chelsea Lawrence'
   s.email        = 'chelseahlaw@gmail.com'
   s.homepage     = 'https://github.com/ChelseaLawrence'
@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
   s.executables   = [ 'studio_game' ]
 
   s.required_ruby_version = '>=1.9'
-  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec', '~> 0'
 end
